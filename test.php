@@ -16,7 +16,7 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 					$_POST['mtop'],
 					$_POST['mleft'],
 					$_POST['mright'],
-					$_POST['mbot'],
+					$_POST['mbot']
 			));
 			break;
 
@@ -28,7 +28,7 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 					$_POST['mtop'],
 					$_POST['mleft'],
 					$_POST['mright'],
-					$_POST['mbot'],
+					$_POST['mbot']
 			));
 			break;
 
