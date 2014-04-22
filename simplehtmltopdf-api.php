@@ -3,15 +3,17 @@
 class SimpleHTMLToPDF {
 
 	private $baseUrl = "http://api.simplehtmltopdf.com/";
+	private $defaultOrientation = "Portrait";
+	private $defaultMargins = array(10,10,10,10);
 
-	public function get($url, $orientation = "Portrait", $marges = array(10,10,10,10)) {
+	public function get($url, $orientation = NULL, $margins = NULL) {
 
-		$orientation = ($orientation == "Landscape") ? $orientation : "Portrait";
+		$orientation = ($orientation == "Landscape") ? $orientation : $this->defaultOrientation;
 
 		$requestUrl = $this->baseUrl . "?link=".urlencode($url)."&amp;orientation=". $orientation;
 
-		if(!count($marges) == 4 || !is_array($marges))
-			$marges = array(10,10,10,10);
+		if(!count($margins) == 4 || !is_array($margins))
+			$marges = $this->defaultMargins;
 
 		$requestUrl .= "&amp;mtop="   . $marges[0];
 		$requestUrl .= "&amp;mleft="  . $marges[1];
@@ -29,7 +31,7 @@ class SimpleHTMLToPDF {
 		return $result;
 	}
 
-	public function download($url, $orientation = "Portrait", $marges = array(10,10,10,10)) {
+	public function download($url, $orientation = NULL, $margins = NULL) {
 
 		header("Content-Type: application/pdf");
 		header("Cache-Control: no-cache");
@@ -39,7 +41,7 @@ class SimpleHTMLToPDF {
 		echo $this->get($url, $orientation, $marges);
 	}
 
-	public function display($url, $orientation = "Portrait", $marges = array(10,10,10,10)) {
+	public function display($url, $orientation = NULL, $marges = NULL) {
 
 		header("Content-Type: application/pdf");
 		header("Cache-Control: no-cache");
