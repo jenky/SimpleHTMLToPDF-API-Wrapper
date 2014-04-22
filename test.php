@@ -34,21 +34,25 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 			<input type="text" name="url" id="url">
 			<input type="submit" value="Go !">
 		</form>
-
+		<br>
 		<form method="POST" action="">
 			<input type="hidden" name="function" value="display">
 			<label for="url">SimpleHTMLToPDF::display(</label>
-			<input type="text" name="url" id="url">
+			<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required>
 			<label for="orientation">, orientation = </label>
 			<select name="orientation" id="orientation">
 				<option>Portrait</option>
 				<option>Landscape</option>
 			</select>
-			<label for="margins">, margins = array(</label>
-			<input type="number" name="mtop" placeholder="Top" id="margins" value="10">,
-			<input type="number" name="mleft" placeholder="Left" value="10">,
-			<input type="number" name="mright" placeholder="Right" value="10">,
-			<input type="number" name="mbot" placeholder="Bottom" value="10">));
+			, margins = array(
+			<label for="mtop">Top = </label>
+			<input type="number" name="mtop" id="mtop" placeholder="Top" style="width: 3em;" value="10">,
+			<label for="mleft">Left = </label>
+			<input type="number" name="mleft" id="mleft" placeholder="Left" style="width: 3em;" value="10">,
+			<label for="mright">Right = </label>
+			<input type="number" name="mright" id="mright" placeholder="Right" style="width: 3em;" value="10">,
+			<label for="mbot">Bottom = </label>
+			<input type="number" name="mbot" id="mbot" placeholder="Bottom" style="width: 3em;" value="10">));
 			<input type="submit" value="Send Request">
 		</form>
 	</body>
