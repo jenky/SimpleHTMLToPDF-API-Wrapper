@@ -6,6 +6,13 @@ class SimpleHTMLToPDF {
 	private $defaultOrientation = "Portrait";
 	private $defaultMargins = array(10,10,10,10);
 
+	/**
+	 * This function get the raw content of your PDF
+	 * @param  string $url         The url to get and transform in PDF
+	 * @param  string $orientation The PDF orientation, possible values : "Landscape", "Portrait" (default)
+	 * @param  array  $margins     The margin of PDF pages, default array(10,10,10,10)
+	 * @return string              Return the raw content of the PDF
+	 */
 	public function get($url, $orientation = NULL, $margins = NULL) {
 
 		$orientation = ($orientation == "Landscape") ? $orientation : $this->defaultOrientation;
@@ -31,6 +38,10 @@ class SimpleHTMLToPDF {
 		return $result;
 	}
 
+	/**
+	 * This function change the header to download the content of a PDF
+	 * See SimpleHTMLToPDF::get() for parameters
+	 */
 	public function download($url, $orientation = NULL, $margins = NULL) {
 
 		header("Content-Type: application/pdf");
@@ -41,6 +52,10 @@ class SimpleHTMLToPDF {
 		echo $this->get($url, $orientation, $marges);
 	}
 
+	/**
+	 * This function change the header to let the user directly see the PDF in his browser
+	 * See SimpleHTMLToPDF::get() for parameters
+	 */
 	public function display($url, $orientation = NULL, $marges = NULL) {
 
 		header("Content-Type: application/pdf");
