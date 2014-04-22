@@ -52,10 +52,10 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 				padding: 0;
 			}
 
-			.string   { color: #0F0; }
-			.function { color: #0FF; }
-			.var      { color: #BBB; }
-			.class    { color: #0F0; }
+			.string   { color: #00B000; }
+			.function { color: #0093FF; }
+			.var      { color: #8C8C8C; }
+			.class    { color: #00E4AC; }
 		</style>
 	</head>
 	<body>
