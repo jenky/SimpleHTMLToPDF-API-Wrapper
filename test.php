@@ -99,8 +99,8 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 		<form method="POST" action="">
 			<fieldset><legend>The download function</legend>
 				<input type="hidden" name="function" value="download">
-				<pre style="margin: 0; padding: 0;">include("simplehtmltopdf-api.php");
-$api = new SimpleHTMLToPDF();</pre>
+				<span class="function">include</span>(<span class="string">"simplehtmltopdf-api.php"</span>);<br>
+				<span class="var">$api</span> = <span class="function">new</span> <span class="class">SimpleHTMLToPDF</span>();
 				<div class="code">
 					<label for="url"><span class="var">$api</span>-><span class="function">download</span>(</label>
 					<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required style="width: 15em;">
