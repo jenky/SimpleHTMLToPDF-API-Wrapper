@@ -45,6 +45,13 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 	<head>
 		<meta charset="utf-8">
 		<title>Test page for Simple HTML to PDF Wrapper</title>
+		<style>
+			.code {
+				font-family: monospace;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
 	</head>
 	<body>
 		<!--<form method="POST" action="">
@@ -61,49 +68,53 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 		<form method="POST" action="">
 			<fieldset><legend>The display function</legend>
 				<input type="hidden" name="function" value="display">
-				<pre>include("simplehtmltopdf-api.php");
+				<pre style="margin: 0; padding: 0;">include("simplehtmltopdf-api.php");
 $api = new SimpleHTMLToPDF();</pre>
-				<label for="url">$api->display(</label>
-				<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required>
-				<label for="orientation">, orientation = </label>
-				<select name="orientation" id="orientation">
-					<option>Portrait</option>
-					<option>Landscape</option>
-				</select>
-				, margins = array(
-				<label for="mtop">Top = </label>
-				<input type="number" name="mtop" id="mtop" placeholder="Top" style="width: 3em;" value="10">,
-				<label for="mleft">Left = </label>
-				<input type="number" name="mleft" id="mleft" placeholder="Left" style="width: 3em;" value="10">,
-				<label for="mright">Right = </label>
-				<input type="number" name="mright" id="mright" placeholder="Right" style="width: 3em;" value="10">,
-				<label for="mbot">Bottom = </label>
-				<input type="number" name="mbot" id="mbot" placeholder="Bottom" style="width: 3em;" value="10">));
-				<input type="submit" value="Send Request">
+				<div class="code">
+					<label for="url">$api->display(</label>
+					<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required style="width: 15em;">
+					<label for="orientation">, orientation = </label>
+					<select name="orientation" id="orientation">
+						<option>Portrait</option>
+						<option>Landscape</option>
+					</select>
+					, margins = array(
+					<label for="mtop">Top = </label>
+					<input type="number" name="mtop" id="mtop" placeholder="Top" style="width: 3em;" value="10">,
+					<label for="mleft">Left = </label>
+					<input type="number" name="mleft" id="mleft" placeholder="Left" style="width: 3em;" value="10">,
+					<label for="mright">Right = </label>
+					<input type="number" name="mright" id="mright" placeholder="Right" style="width: 3em;" value="10">,
+					<label for="mbot">Bottom = </label>
+					<input type="number" name="mbot" id="mbot" placeholder="Bottom" style="width: 3em;" value="10">));
+					<input type="submit" value="Send Request">
+				</div>
 			</fieldset>
 		</form>
 		<form method="POST" action="">
 			<fieldset><legend>The download function</legend>
 				<input type="hidden" name="function" value="download">
-				<pre>include("simplehtmltopdf-api.php");
+				<pre style="margin: 0; padding: 0;">include("simplehtmltopdf-api.php");
 $api = new SimpleHTMLToPDF();</pre>
-				<label for="url">$api->download(</label>
-				<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required>
-				<label for="orientation">, orientation = </label>
-				<select name="orientation" id="orientation">
-					<option>Portrait</option>
-					<option>Landscape</option>
-				</select>
-				, margins = array(
-				<label for="mtop">Top = </label>
-				<input type="number" name="mtop" id="mtop" placeholder="Top" style="width: 3em;" value="10">,
-				<label for="mleft">Left = </label>
-				<input type="number" name="mleft" id="mleft" placeholder="Left" style="width: 3em;" value="10">,
-				<label for="mright">Right = </label>
-				<input type="number" name="mright" id="mright" placeholder="Right" style="width: 3em;" value="10">,
-				<label for="mbot">Bottom = </label>
-				<input type="number" name="mbot" id="mbot" placeholder="Bottom" style="width: 3em;" value="10">));
-				<input type="submit" value="Send Request">
+				<div class="code">
+					<label for="url">$api->download(</label>
+					<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required style="width: 15em;">
+					<label for="orientation">, orientation = </label>
+					<select name="orientation" id="orientation">
+						<option>Portrait</option>
+						<option>Landscape</option>
+					</select>
+					, margins = array(
+					<label for="mtop">Top = </label>
+					<input type="number" name="mtop" id="mtop" placeholder="Top" style="width: 3em;" value="10">,
+					<label for="mleft">Left = </label>
+					<input type="number" name="mleft" id="mleft" placeholder="Left" style="width: 3em;" value="10">,
+					<label for="mright">Right = </label>
+					<input type="number" name="mright" id="mright" placeholder="Right" style="width: 3em;" value="10">,
+					<label for="mbot">Bottom = </label>
+					<input type="number" name="mbot" id="mbot" placeholder="Bottom" style="width: 3em;" value="10">));
+					<input type="submit" value="Send Request">
+				</div>
 			</fieldset>
 		</form>
 	</body>
