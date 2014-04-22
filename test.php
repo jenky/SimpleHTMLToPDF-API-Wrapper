@@ -1,6 +1,6 @@
 <?php
 /*
- * This is page just test the API Wrapper.
+ * This is just a test page for the API Wrapper.
  */
 if(isset($_POST['url'])) {
 	include("simplehtmltopdf-api.php");
