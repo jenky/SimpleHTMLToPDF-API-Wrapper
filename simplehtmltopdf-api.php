@@ -5,6 +5,7 @@ class SimpleHTMLToPDF {
 	private $baseUrl = "http://api.simplehtmltopdf.com/";
 	private $defaultOrientation = "Portrait";
 	private $defaultMargins = array(10,10,10,10);
+	private $userAgent = "SimpleHTMLToPDF PHP Wrapper";
 
 	/**
 	 * This function get the raw content of your PDF
@@ -30,7 +31,7 @@ class SimpleHTMLToPDF {
 		$curl = curl_init($requestUrl);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-			'User-Agent: SimpleHTMLToPDF PHP Wrapper'
+			'User-Agent: '. $this->userAgent
 		));
 
 		$result = curl_exec($curl);
