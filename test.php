@@ -80,8 +80,8 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 					<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required style="width: 15em;">
 					<label for="orientation">, orientation = </label>
 					<select name="orientation" id="orientation">
-						<option>Portrait</option>
-						<option>Landscape</option>
+						<option value="Portrait">Portrait</option>
+						<option value="Landscape">Landscape</option>
 					</select>
 					, margins = <span class="function">array</span>(
 					<label for="mtop">Top = </label>
@@ -106,8 +106,8 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 					<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required style="width: 15em;">
 					<label for="orientation">, orientation = </label>
 					<select name="orientation" id="orientation">
-						<option>Portrait</option>
-						<option>Landscape</option>
+						<option value="Portrait">Portrait</option>
+						<option value="Landscape">Landscape</option>
 					</select>
 					, margins = <span class="function">array</span>(
 					<label for="mtop">Top = </label>
