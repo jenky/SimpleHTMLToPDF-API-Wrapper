@@ -51,6 +51,11 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 				margin: 0;
 				padding: 0;
 			}
+
+			.string   { color: #0F0; }
+			.function { color: #0FF; }
+			.var      { color: #BBB; }
+			.class    { color: #0F0; }
 		</style>
 	</head>
 	<body>
@@ -68,17 +73,17 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 		<form method="POST" action="">
 			<fieldset><legend>The display function</legend>
 				<input type="hidden" name="function" value="display">
-				<pre style="margin: 0; padding: 0;">include("simplehtmltopdf-api.php");
-$api = new SimpleHTMLToPDF();</pre>
+				<span class="function">include</span>(<span class="string">"simplehtmltopdf-api.php"</span>);<br>
+				<span class="var">$api</span> = <span class="function">new</span> <span class="class">SimpleHTMLToPDF</span>();
 				<div class="code">
-					<label for="url">$api->display(</label>
+					<label for="url"><span class="var">$api</span>-><span class="function">display</span>(</label>
 					<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required style="width: 15em;">
 					<label for="orientation">, orientation = </label>
 					<select name="orientation" id="orientation">
 						<option>Portrait</option>
 						<option>Landscape</option>
 					</select>
-					, margins = array(
+					, margins = <span class="function">array</span>(
 					<label for="mtop">Top = </label>
 					<input type="number" name="mtop" id="mtop" placeholder="Top" style="width: 3em;" value="10">,
 					<label for="mleft">Left = </label>
@@ -97,14 +102,14 @@ $api = new SimpleHTMLToPDF();</pre>
 				<pre style="margin: 0; padding: 0;">include("simplehtmltopdf-api.php");
 $api = new SimpleHTMLToPDF();</pre>
 				<div class="code">
-					<label for="url">$api->download(</label>
+					<label for="url"><span class="var">$api</span>-><span class="function">download</span>(</label>
 					<input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required style="width: 15em;">
 					<label for="orientation">, orientation = </label>
 					<select name="orientation" id="orientation">
 						<option>Portrait</option>
 						<option>Landscape</option>
 					</select>
-					, margins = array(
+					, margins = <span class="function">array</span>(
 					<label for="mtop">Top = </label>
 					<input type="number" name="mtop" id="mtop" placeholder="Top" style="width: 3em;" value="10">,
 					<label for="mleft">Left = </label>
