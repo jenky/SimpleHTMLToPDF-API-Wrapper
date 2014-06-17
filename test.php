@@ -32,6 +32,22 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 			));
 			break;
 
+		case 'link':
+			$pdf = $api->raw(
+				urldecode($_POST['url']),
+				$_POST['orientation'],
+				array(
+					$_POST['mtop'],
+					$_POST['mleft'],
+					$_POST['mright'],
+					$_POST['mbot']
+			));
+			
+			echo '<a href="data:application/pdf;base64,base64encodedpdf' . base64_encode($pdf) . '">PDF</a>';
+			die;
+			
+			break;
+
 		default:
 			$api->display(urldecode($_POST["url"]));
 			break;
@@ -96,6 +112,33 @@ if(isset($_POST['url']) || isset($_POST['function'])) {
 				</div>
 			</fieldset>
 		</form>
+		<form method="POST" action="">
+                        <fieldset><legend>The raw function</legend>
+				<p>Please, note that this function output the raw content of the PDF. For convience the output will be presented in a link that points to the base64 encoded PDF content.</p>
+                                <input type="hidden" name="function" value="link">
+                                <span class="function">include</span>(<span class="string">"simplehtmltopdf-api.php"</span>);<br>
+                                <span class="var">$api</span> = <span class="function">new</span> <span class="class">SimpleHTMLToPDF</span>();
+                                <div class="code">
+                                        <label for="url"><span class="var">$api</span>-><span class="function">raw</span>(</label>
+                                        <input type="text" name="url" id="url" placeholder="http://www.simplehtmltopdf.com/" required style="width: 15em;">
+                                        <label for="orientation">, orientation = </label>
+                                        <select name="orientation" id="orientation">
+                                                <option value="Portrait">Portrait</option>
+                                                <option value="Landscape">Landscape</option>
+                                        </select>
+                                        , margins = <span class="function">array</span>(
+                                        <label for="mtop">Top = </label>
+                                        <input type="number" name="mtop" id="mtop" placeholder="Top" style="width: 3em;" value="10">,
+                                        <label for="mleft">Left = </label>
+                                        <input type="number" name="mleft" id="mleft" placeholder="Left" style="width: 3em;" value="10">,
+                                        <label for="mright">Right = </label>
+                                        <input type="number" name="mright" id="mright" placeholder="Right" style="width: 3em;" value="10">,
+                                        <label for="mbot">Bottom = </label>
+                                        <input type="number" name="mbot" id="mbot" placeholder="Bottom" style="width: 3em;" value="10">));
+                                        <input type="submit" value="Send Request">
+                                </div>
+                        </fieldset>
+                </form>
 		<form method="POST" action="">
 			<fieldset><legend>The download function</legend>
 				<input type="hidden" name="function" value="download">

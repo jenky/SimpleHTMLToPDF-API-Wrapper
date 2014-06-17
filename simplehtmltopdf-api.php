@@ -65,6 +65,10 @@ class SimpleHTMLToPDF {
 
 		echo $this->get($url, $orientation, $margins);
 	}
+
+	public function raw($url, $orientation = NULL, $margins = NULL) {
+		return $this->get($url, $orientation, $margins);
+	}
 }
 
 ?>
