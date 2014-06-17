@@ -6,6 +6,7 @@ class SimpleHTMLToPDF {
 	private $defaultOrientation = "Portrait";
 	private $defaultMargins = array(10,10,10,10);
 	private $userAgent = "SimpleHTMLToPDF PHP Wrapper";
+	private $defaultName = date("YmdHis").'.pdf';
 
 	/**
 	 * This function get the raw content of your PDF
@@ -17,7 +18,6 @@ class SimpleHTMLToPDF {
 	public function get($url, $orientation = NULL, $margins = NULL) {
 
 		$orientation = ($orientation == "Landscape") ? $orientation : $this->defaultOrientation;
-
 		$requestUrl = $this->baseUrl . "?link=".urlencode($url)."&orientation=". $orientation;
 
 		if(!count($margins) == 4 || !is_array($margins))
@@ -42,13 +42,15 @@ class SimpleHTMLToPDF {
 	/**
 	 * This function change the header to download the content of a PDF
 	 * See SimpleHTMLToPDF::get() for parameters
+	 * @param  string  $filename     The name of the PDF file, default actual_date
 	 */
-	public function download($url, $orientation = NULL, $margins = NULL) {
+	public function download($url, $orientation = NULL, $margins = NULL, $filename = NULL) {
 
+		$filename = ($filename != NULL) ? $filename : $this->defaultName;
 		header("Content-Type: application/pdf");
 		header("Cache-Control: no-cache");
 		header("Accept-Ranges: none");
-		header("Content-Disposition: attachment; filename=\"your_pdf_name.pdf\"");
+		header("Content-Disposition: attachment; filename=$filename");
 
 		echo $this->get($url, $orientation, $margins);
 	}
