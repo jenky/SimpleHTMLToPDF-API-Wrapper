@@ -67,7 +67,11 @@ class SimpleHTMLToPDF {
 
 		echo $this->get($url, $orientation, $margins);
 	}
-
+	
+	/**
+	 * This function just return the content of the PDF as raw data
+	 * See SimpleHTMLToPDF::get() for parameters
+	 */
 	public function raw($url, $orientation = NULL, $margins = NULL) {
 		return $this->get($url, $orientation, $margins);
 	}
